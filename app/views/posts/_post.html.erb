@@ -1,0 +1,31 @@
+<div id="<%= dom_id post %>">
+  <p>
+    <strong>Title:</strong>
+    <%= post.title %>
+
+    <% if post.created_at > 1.hour.ago %>
+      <%=  "[created " + time_ago_in_words(post.created_at) %> ago @
+      <%= post.created_at.strftime("%I:%M %P (%m/%d/%Y) ]") %>
+      <font size =2><b>
+      <br>      
+      <%= "[updated " + post.updated_at.strftime("%I:%M %P (%m/%d/%Y) ]") %>
+      </font></b>
+    <% else %>
+      <%= post.created_at.strftime("[%m/%d/%Y (%I %M %P)]") %>
+      <font size =2><b>
+      <br>
+      <%= "[updated  " + post.updated_at.strftime("%m/%d/%Y (%I %M %P)]") %>
+      </font></b>
+      
+    <% end %>
+
+  </p>
+
+  <p>
+    <strong>Body:</strong>
+    <%= post.body %>
+  </p>
+   <div id="custom-menu" class="menu">
+      <a href="#" data-action="find-and-replace">Find and Replace</a>
+    </div>
+</div>
